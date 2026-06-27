@@ -91,7 +91,7 @@ SarkarSetu AI builds a **Citizen Digital Twin** from a 4-minute onboarding form,
 ### 1. Clone and configure
 
 ```bash
-git clone https://github.com/your-username/sarkarsetu-ai
+git clone https://github.com/Tanishwankhede-source/SarkarSetuAI.git
 cd SarkarSetu-AI
 cp .env.example .env
 # Edit .env and add your ANTHROPIC_API_KEY
@@ -120,6 +120,20 @@ docker-compose exec backend python /app/data/seed.py
 ```
 http://localhost:3000
 ```
+
+---
+
+## Deploying to Netlify
+
+1. Create a new Netlify site from GitHub.
+2. Set the repository to `Tanishwankhede-source/SarkarSetuAI`.
+3. In Netlify build settings, no extra configuration is needed because `netlify.toml` is included.
+4. Add environment variables:
+   - `ANTHROPIC_API_KEY` = your Anthropic API key
+   - `SECRET_KEY` = any secure string
+5. Deploy.
+
+> Note: This repo uses a frontend-only Netlify deploy. The backend still runs locally or via Docker Compose.
 
 ---
 
