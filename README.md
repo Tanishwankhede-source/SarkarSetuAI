@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SarkarSetu AI
 ### "No Citizen Left Behind"
 
@@ -131,9 +130,11 @@ http://localhost:3000
 4. Add environment variables:
    - `ANTHROPIC_API_KEY` = your Anthropic API key
    - `SECRET_KEY` = any secure string
+   - `NEXT_PUBLIC_API_URL` = the public URL of your backend, for example `https://api.example.com`
 5. Deploy.
 
-> Note: This repo uses a frontend-only Netlify deploy. The backend still runs locally or via Docker Compose.
+> Note: This repository currently deploys only the frontend to Netlify. For the live site to work, you must host the backend on a public endpoint and set `NEXT_PUBLIC_API_URL` to that backend URL.
+> Also set the backend's `FRONTEND_URL` to your Netlify domain (for example `https://sarkarsetuai.netlify.app`) so CORS is allowed.
 
 ---
 
@@ -159,9 +160,12 @@ uvicorn main:app --reload --port 8000
 ```bash
 cd frontend
 npm install
+# Local development: connect to the local backend
 echo "NEXT_PUBLIC_API_URL=http://localhost:8000" > .env.local
 npm run dev
 ```
+
+> For the Netlify deployment, do not use a local backend URL. Set `NEXT_PUBLIC_API_URL` in Netlify's environment variables to the publicly reachable backend URL.
 
 ### Database setup
 

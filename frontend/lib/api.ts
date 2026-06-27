@@ -1,13 +1,21 @@
-const BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const apiBase = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "") || null;
+const BASE = apiBase || (process.env.NODE_ENV === "development" ? "http://localhost:8000" : null);
 
 function getToken(): string | null {
   if (typeof window === "undefined") return null;
   return localStorage.getItem("ss_token");
 }
 
+function getApiUrl(path: string): string {
+  if (!BASE) {
+    throw new Error("Missing NEXT_PUBLIC_API_URL in production. Set it in your environment.");
+  }
+  return `${BASE}/api/v1${path}`;
+}
+
 async function req<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = getToken();
-  const res = await fetch(`${BASE}/api/v1${path}`, {
+  const res = await fetch(getApiUrl(path), {
     ...options,
     headers: {
       "Content-Type": "application/json",
