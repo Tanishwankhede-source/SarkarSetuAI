@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gov-navy: #003366;
+    --gov-saffron: #ff9933;
+    --gov-green: #138808;
+    --gov-page: #eeeeee;
+    --gov-border: #cccccc;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-[15px] leading-relaxed text-gray-900 antialiased;
+    background: var(--gov-page);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-semibold text-gov-navy;
+  }
+
+  a {
+    @apply text-gov-link hover:underline;
+  }
+}
+
+@layer components {
+  .gov-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .gov-container-wide {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6;
+  }
+
+  .tricolor-strip {
+    @apply flex h-1.5 w-full;
+  }
+  .tricolor-saffron { @apply h-full flex-1 bg-gov-saffron; }
+  .tricolor-white { @apply h-full flex-1 bg-white; }
+  .tricolor-green { @apply h-full flex-1 bg-gov-green; }
+
+  .gov-utility-bar {
+    @apply bg-gov-navy text-white;
+  }
+
+  .gov-logo-band {
+    @apply border-b border-gov-border bg-white;
+  }
+
+  .gov-emblem {
+    @apply flex h-14 w-14 flex-shrink-0 items-center justify-center border-2 border-gov-navy bg-white;
+  }
+
+  .gov-main-nav {
+    @apply border-b-2 border-gov-saffron bg-gov-navy;
+  }
+
+  .gov-nav-link {
+    @apply block border-r border-white/15 px-4 py-2.5 text-sm font-semibold text-white no-underline hover:bg-white/10;
+  }
+
+  .gov-nav-link-active {
+    @apply bg-gov-saffron text-white hover:bg-gov-saffron;
+  }
+
+  .gov-page-banner {
+    @apply border-b-4 border-gov-saffron bg-cover bg-center bg-no-repeat;
+  }
+
+  .gov-breadcrumb {
+    @apply text-xs text-white/85;
+  }
+
+  .gov-content-area {
+    @apply gov-container py-6 sm:py-8;
+  }
+
+  .gov-panel {
+    @apply border border-gov-border bg-white p-4 sm:p-5;
+  }
+
+  .gov-panel-heading {
+    @apply mb-4 border-b border-gov-border pb-2 text-base font-bold text-gov-navy;
+  }
+
+  .gov-btn-primary {
+    @apply inline-flex items-center justify-center border border-gov-navy bg-gov-navy px-5 py-2 text-sm font-semibold text-white no-underline hover:bg-[#002244];
+  }
+
+  .gov-btn-saffron {
+    @apply inline-flex items-center justify-center border border-[#cc7a00] bg-gov-saffron px-5 py-2 text-sm font-semibold text-white no-underline hover:bg-[#e68900];
+  }
+
+  .gov-btn-outline {
+    @apply inline-flex items-center justify-center border border-gov-navy bg-white px-5 py-2 text-sm font-semibold text-gov-navy no-underline hover:bg-gray-50;
+  }
+
+  .gov-input {
+    @apply w-full border border-gov-border bg-white px-3 py-2 text-sm focus:border-gov-navy focus:outline-none focus:ring-1 focus:ring-gov-navy;
+  }
+
+  .gov-label {
+    @apply mb-1 block text-sm font-semibold text-gray-800;
+  }
+
+  .gov-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .gov-table th {
+    @apply border border-gov-border bg-[#f5f5f5] px-3 py-2 text-left font-bold text-gov-navy;
+  }
+
+  .gov-table td {
+    @apply border border-gov-border px-3 py-2 align-top;
+  }
+
+  .gov-stat-box {
+    @apply border border-gov-border bg-white p-4 text-center;
+  }
+
+  .gov-stat-value {
+    @apply text-2xl font-bold text-gov-navy;
+  }
+
+  .gov-stat-label {
+    @apply mt-1 text-xs font-semibold uppercase tracking-wide text-gray-600;
+  }
+
+  .gov-alert {
+    @apply border-l-4 bg-[#fff8e6] p-4 text-sm;
+  }
+
+  .gov-alert-warning {
+    @apply border-[#cc7a00] text-[#7a4f00];
+  }
+
+  .gov-footer {
+    @apply border-t-4 border-gov-green bg-[#f5f5f5];
+  }
+
+  .gov-footer-heading {
+    @apply mb-2 text-sm font-bold text-gov-navy;
+  }
+
+  .gov-footer-links {
+    @apply space-y-1 text-sm text-gray-700;
+  }
+
+  .gov-footer-links a {
+    @apply text-gov-link no-underline hover:underline;
+  }
+
+  .gov-tag {
+    @apply inline-block border border-gov-border bg-[#f5f5f5] px-2 py-0.5 text-xs font-semibold uppercase text-gray-700;
+  }
+
+  .gov-tag-active {
+    @apply border-gov-navy bg-gov-navy text-white;
+  }
+
+  /* Legacy aliases used across pages */
+  .btn-primary { @apply gov-btn-primary; }
+  .btn-saffron { @apply gov-btn-saffron; }
+  .card { @apply gov-panel; }
+  .badge { @apply gov-tag; }
+}
+
+.streaming-cursor::after {
+  content: "▋";
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f0f0f0; }
+::-webkit-scrollbar-thumb { background: #999; }
+
+/* Benefit cards */
+.benefit-card {
+  @apply border border-gov-border bg-white transition-all duration-200;
+  box-shadow: 0 1px 3px rgba(0, 51, 102, 0.06);
+}
+.benefit-card:hover {
+  @apply border-gov-navy;
+  box-shadow: 0 4px 16px rgba(0, 51, 102, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Voice assistant */
+.voice-fab {
+  @apply fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-gov-saffron px-4 py-3 text-white shadow-lg transition-all hover:bg-[#e68900] hover:shadow-xl;
+}
+.voice-fab-label {
+  @apply text-sm font-semibold hidden sm:inline;
+}
+.voice-panel {
+  @apply fixed bottom-24 right-6 z-50 flex w-[calc(100vw-3rem)] max-w-md flex-col rounded-lg border border-gov-border bg-white shadow-2xl;
+  max-height: calc(100vh - 8rem);
+}
+.voice-panel-header {
+  @apply flex items-center justify-between rounded-t-lg bg-gov-navy px-4 py-3;
+}
+.voice-messages {
+  @apply flex-1 overflow-y-auto p-4 space-y-3;
+  max-height: 320px;
+}
+.voice-welcome {
+  @apply text-center py-4;
+}
+.voice-quick-btn {
+  @apply rounded-full border border-gov-border bg-[#f5f5f5] px-3 py-1 text-xs hover:bg-gov-saffron hover:text-white hover:border-gov-saffron transition-colors;
+}
+.voice-bubble {
+  @apply rounded-lg px-3 py-2 text-sm max-w-[85%];
+}
+.voice-bubble-user {
+  @apply ml-auto bg-gov-navy text-white;
+}
+.voice-bubble-assistant {
+  @apply mr-auto bg-[#f0f7ff] text-gray-800 border border-blue-100;
+}
+.voice-controls {
+  @apply flex items-center gap-2 border-t border-gov-border p-3;
+}
+.voice-input {
+  @apply flex-1 border border-gov-border rounded px-3 py-2 text-sm focus:border-gov-navy focus:outline-none;
+}
+.voice-mic-btn {
+  @apply flex h-9 w-9 items-center justify-center rounded-full border border-gov-navy text-gov-navy hover:bg-gov-navy hover:text-white transition-colors;
+}
+.voice-mic-active {
+  @apply bg-red-600 border-red-600 text-white animate-pulse;
+}
+.voice-speak-btn {
+  @apply flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-gray-500 disabled:opacity-40;
+}
+.voice-listening-hint {
+  @apply text-center text-xs text-gov-saffron font-semibold pb-2 animate-pulse;
+}
