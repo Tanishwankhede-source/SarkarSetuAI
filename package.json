@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "packageManager": "npm@10",
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^6.0.0"
+  }
+}
