@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SarkarSetu AI
 ### "No Citizen Left Behind"
 
